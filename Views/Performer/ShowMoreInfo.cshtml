@@ -1,0 +1,75 @@
+﻿@model GigBookin.Models.ShowMoreInfoPerformerViewModel;
+@{
+    ViewBag.Name = "Performers";
+}
+<form method="post" action="ShowMoreInfo" class="mt-5">​
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+           
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h2 class="text-center">@ViewBag.Name</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="profile-card">
+                                <img src="@Model.ImageUrl" alt="Performer Image" class="profile-image img-fluid">
+                                <div class="profile-info">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <p>@Model.Name</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Genre</label>
+                                        <p>@Model.Genre</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <p>@Model.Description</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <p>@Model.Email</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <p>@Model.Phone</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Type</label>
+                                        <p>@Model.Type</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Rating</label>
+                                        <p>@Model.Rating</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Experience</label>
+                                        <p>@Model.Experince</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Price</label>
+                                        <p>@Model.Price</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="button-container">
+                                <span class="button1">
+                                    <a asp-controller="Performer" asp-action="Remove" asp-route-id="@Model.Id" class="btn custom-button">REMOVE</a>
+                                </span>
+                                <span class="button2">
+                                    <a asp-controller="Performer" asp-action="Edit" asp-route-id="@Model.Id" class="btn custom-button2" style="margin-right:5px;">EDIT</a>
+                                </span>
+                            </div>
+                        </div>                   
+                </div>
+            
+        </div>
+ </div>
+ 
+</form>
+
+

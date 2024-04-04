@@ -1,0 +1,40 @@
+﻿.body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.home {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    text-transform: capitalize;
+}
+
+    .home .content {
+        width: 100%;
+        min-height: 100vh;
+        background-color: black;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../media/blonde.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .home .title {
+        position: relative;
+        text-align: center;
+        padding-top: 750px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 120px;
+        -webkit-text-stroke: 3px #43291F;
+        color: transparent;
+        background-image: linear-gradient(#E1C591,#E1C591);
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-position: -750px 0;
+        animation: backcolor 5s linear infinite;
+    }

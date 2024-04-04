@@ -1,0 +1,23 @@
+﻿.profile-card {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 400px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.profile-info {
+    flex: 1; /* Fill remaining space */
+}
+.card-body {
+    width: 90%; /* Adjust the width as needed */
+    max-width: 800px; /* Add a maximum width to prevent it from becoming too wide */
+    padding: 20px; /* Add padding to the content area */
+    background-color: #f9f9f9; /* Set background color */
+    border-radius: 8px; /* Add rounded corners */
+    margin: 0 auto; /* Center the card-body horizontally */
+    background-size: cover;
+}

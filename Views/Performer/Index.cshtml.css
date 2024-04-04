@@ -1,0 +1,119 @@
+﻿.performer-container {
+    height: 100%;
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.performer-card-container {
+    display: flex;
+    width:23%;
+    background-image: url('../media/lightsea.png');
+    border: 3px solid #4D372F;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 15px;
+    padding: 10px;
+    margin-left: 25px;
+}
+
+.performer-card .card-title {
+    font-size: 25px;
+    color: #A27868;
+    -webkit-text-stroke: 1px #D4A8A8;
+    text-stroke: 1px #D4A8A8;
+    margin-right: 175px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.performer-card p {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #A27868;
+    font-size: 20px;
+}
+
+.performer-card {
+    width: 25rem;
+    height: 100%;
+    background-color: #4D372F;
+    margin-right: 10px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D2C0BA;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    margin-left: 10px;
+    margin-bottom:10px;
+}
+
+.img-container {
+    width: 300px;
+    height: 85%;
+    background-size: cover;
+    background-position: center;
+    margin-top: 15px;
+    background-color: #A0867B;
+}
+
+.performer-card .card-img-top {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; /* Add margin to separate buttons from card body */
+}
+
+.button1 {
+    background-color: #faf0e6; /* Set background color */
+    color: #4d372f; /* Set text color */
+    border: 2px solid #4d372f; /* Set border color */
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+     margin-right:10px;
+  
+    transition: background-color 0.3s, color 0.3s;
+}
+.button2 {
+    background-color: #faf0e6; /* Set background color */
+    color: #4d372f; /* Set text color */
+    border: 2px solid #4d372f; /* Set border color */
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container:not(:last-child) {
+        margin-right: 10px; /* Add margin between buttons */
+}
+
+.button-container:hover {
+        background-color: #4d372f; /* Change background color on hover */
+        color: #faf0e6; /* Change text color on hover */
+    }

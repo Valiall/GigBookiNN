@@ -1,0 +1,80 @@
+﻿@model List<GigBookin.Models.Entities.Performer>;
+@{
+    ViewBag.Name = "Performers";
+}
+
+<div>
+    <form method="post" asp-action="Index">
+        <div class="input-group md-form form-control-sm form-2 pl-0">
+            <input name="singername" class="form-control my-0 p-lg-1 red-border" type="text" placeholder="Search singer by name" />
+            <div class="input-group-append">
+                <span class="input-group-text list-group-numbered lighten-3" style="background-color:aquamarine">
+                    <input type="submit" value="Search" style="border:none; background-color:aquamarine" />
+                </span>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<p></p>
+
+
+
+<div class="text-center-row performer-container">
+   
+    <div class="card performer-card mb-4">
+        <label for="" class="form-label" style="margin-top:5px;  color: #A27868;
+    -webkit-text-stroke: 1px #D4A8A8;
+    text-stroke: 1px #D4A8A8; text-trasform:uppercase;font-size:22px;">Filter by </label>
+       
+        <form method="post" asp-action="FilterByStars">
+            <label for="" class="form-label" style="color:#A27868; text-transform:uppercase; font-weight:bold;">Rating: </label>
+            <input name="stars" class="form-control my-0 p-lg-1 red-border" type="number" placeholder="Stars" />
+        </form>
+        <br />
+        <form method="post" asp-action="FilterByGenre">
+            <label for="" class="form-label" style="color:#A27868; text-transform:uppercase; font-weight:bold;">Genre: </label>
+            <input name="genre" class="form-control my-0 p-lg-1 red-border" type="text" placeholder="Genre" />
+        </form>
+        <br />
+        <form method="post" asp-action="FilterByPrice" style="margin-bottom:15px;">
+            <label for="" class="form-label" style="color:#A27868; text-transform:uppercase; font-weight:bold;">Price: </label>
+            <input name="price" class="form-control my-0 p-lg-1 red-border"  type="number" placeholder="Price" />
+        </form>
+    </div>
+    
+    <br>
+    @foreach (var performer in Model)
+    {
+        <div class="performer-card-container">
+            <div class="card performer-card mb-4" style="margin-top:20px;">
+                
+                <div class="img-container" style="width:230px;height:270px;">
+                    <img class="card-img-top" style="width:13rem;height:16rem;margin-left:11px;margin-top:10px;margin-bottom:10px;" src="@performer.ImageUrl" alt="PerformerImage">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title mt-1" stlyle="margin-left:10px;">@performer.Name</h5>
+                    <br>
+
+                    <p class="mb-2" style="fill:#A27868;">Rating:<span style="color:#CCB2A8;"> @performer.Rating stars </span></p>
+                    <p class="mb-2">Genre:<span style="color:#CCB2A8;"> @performer.Genre.Name</span> Type:<span style="color:#CCB2A8;"> @performer.Type</span></p>
+
+                    <p class="mb-2">Experience:<span style="color: #CCB2A8;"> @performer.Experince</span></p>
+                    <p class="mb-2">Price:<span style="color: #CCB2A8;"> @performer.Price per hour</span></p>
+                </div>
+                <div class="button-container">
+                    <span class="button1" style="margin-bottom:15px;">
+                        <a asp-controller="Performer" asp-action="ShowMoreInfo" asp-route-id="@performer.Id" class="btn custom-button" style="text-transform:uppercase; color:#4D372F; font-weight:bold;">More Info</a>
+                    </span>
+
+
+                    <span class="button2" style="margin-right:20px;margin-bottom:15px;">
+                        <a asp-controller="Performer" asp-action="Hire" asp-route-id="@performer.Id" class="btn custom-button2" style=" text-transform:uppercase; color:#4D372F; font-weight:bold;">Hire</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

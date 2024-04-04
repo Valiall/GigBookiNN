@@ -1,0 +1,71 @@
+﻿@model GigBookin.Models.ShowMoreInfoEventViewModel;
+@{
+    ViewBag.Name = "Events";
+}
+<form method="post" action="ShowMoreInfo" class="mt-5">​
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+           
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h2 class="text-center">@ViewBag.Name</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="profile-card">
+                                <img src="@Model.ImageUrl" alt="Event Image" class="profile-image img-fluid">
+                                <div class="profile-info">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <p>@Model.Name</p>
+                                    </div>
+                                      <div class="mb-3">
+                                        <label class="form-label">Location</label>
+                                        <p>@Model.Location</p>
+                                    </div>
+                                      <div class="mb-3">
+                                        <label class="form-label">Working Hours</label>
+                                        <p>@Model.WorkingHours</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Date</label>
+                                        <p>@Model.Date</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Time</label>
+                                        <p>@Model.Time</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Description</label>
+                                        <p>@Model.Description</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Event Organizer</label>
+                                        <p>@Model.EventOrganiserId</p>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">RequestIsAccepted</label>
+                                        <p>@Model.RequestIsAccepted</p>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="button-container">
+                                <span class="button1">
+                                    <a asp-controller="Event" asp-action="Remove" asp-route-id="@Model.Id" class="btn custom-button">REMOVE</a>
+                                </span>
+                                <span class="button2">
+                                    <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id" class="btn custom-button2" style="margin-right:5px;">EDIT</a>
+                                </span>
+                            </div>
+                        </div>                   
+                </div>
+            
+        </div>
+ </div>
+ 
+</form>

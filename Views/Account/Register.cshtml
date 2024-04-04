@@ -1,0 +1,55 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="../Views/Account/Register.cshtml.css" />
+</head>
+<section>
+    <div class="wrapper">
+
+        <form id="registerForm" method="post">
+
+            <div class="text-center mb-4">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="input-box">
+                <label asp-for="@Model.UserName">UserName</label>
+                <input class="form-control" autocomplete="username" aria-required="true" asp-for="@Model.UserName" />
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <label asp-for="@Model.Email">Email</label>
+                <input class="form-control" autocomplete="username" aria-required="true" asp-for="@Model.Email" />
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="input-box">
+                <label asp-for="@Model.Password">Password</label>
+                <input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.Password" />
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <label asp-for="@Model.ConfirmPassword">Confirm Password</label>
+                <input class="form-control" type="password" autocomplete="new-password" aria-required="true" asp-for="@Model.ConfirmPassword" />
+                <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+            <div class="button-borders">
+                <button class="primary-button">
+                    REGISTER
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>

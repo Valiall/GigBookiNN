@@ -1,0 +1,87 @@
+﻿
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.top-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../media/desert.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+}
+
+.contact-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    padding-top: 150px;
+    transform: translateX(-50%);
+    color: #43291F;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 1;
+    text-shadow: 0 0 5px #E1C591;
+}
+
+
+
+.bottom-section {
+    position: relative;
+    background-color: #43291F;
+    padding: 20px;
+    height: 45vh;
+}
+
+
+.container {
+    max-width: 1000px; /* Adjusted max-width */
+    margin: 0 auto;
+    display: flex;
+}
+
+
+
+.left-section, .right-section {
+    width: 50%;
+}
+
+.email {
+    text-transform: lowercase;
+}
+
+h2 {
+    color: #43291F;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    text-shadow: 0 0 5px #E1C591;
+}
+
+p {
+    -webkit-text-fill-color: #43291F;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-text-stroke: #E1C591;
+}
+
+
+iframe {
+    width: 100%; /* Adjusted width */
+    height: 300px; /* Adjusted height */
+}
+
+.left-section {
+    background-color: #220D05;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.container > .right-section {
+    margin-left: 20px;
+}

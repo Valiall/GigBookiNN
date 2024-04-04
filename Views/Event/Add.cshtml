@@ -1,0 +1,135 @@
+﻿@model GigBookin.Models.AddEventViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <!-- Add your CSS links or styles here -->
+    <style>
+        body {
+            background-color: #222; /* Adjust background color as needed */
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Choose appropriate font */
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 800px; /* Adjust the maximum width of the form container */
+            margin: 0 auto;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+            .form-row .form-group {
+                flex: 1;
+                margin-right: 10px;
+            }
+
+                .form-row .form-group:last-child {
+                    margin-right: 0;
+                }
+
+        .btn-primary {
+            background-color: #007bff; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-bottom:20px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3; /* Button hover color */
+            }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div id="addevent" style="margin-top:30px; text-transform:uppercase;">
+            <h2>Add Event</h2>
+        </div>
+
+        <form method="post" asp-action="Add" asp-controller="Event" class="mt-5">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" id="Name" name="Name" class="form-control" asp-for="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Location" class="form-label">Location</label>
+                    <input type="text" id="Location" name="Location" class="form-control" asp-for="Location">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ImageUrl" class="form-label">Image URL</label>
+                    <input type="text" id="ImageUrl" name="ImageUrl" class="form-control" asp-for="ImageUrl">
+                </div>
+
+                <div class="form-group">
+                    <label for="WorkingHours" class="form-label">Working Hours</label>
+                    <input type="text" id="WorkingHours" name="WorkingHours" class="form-control" asp-for="WorkingHours">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Date" class="form-label">Date</label>
+                    <input type="date" id="Date" name="Date" class="form-control" asp-for="Date">
+                </div>
+
+                <div class="form-group">
+                    <label for="Time" class="form-label">Time</label>
+                    <input type="time" id="Time" name="Time" class="form-control" asp-for="Time">
+                   
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="Description" class="form-label">Description</label>
+                    <input type="text" id="Description" name="Description" class="form-control" asp-for="Description">
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="EventOrganiserId" class="form-label">Event Organiser</label>
+                    <select asp-for="EventOrganiserId" class="form-control" asp-items="ViewBag.EventorganiserId">​</select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="RequestIsAccepted" class="form-label">Request Is Accepted</label>
+                    <input type="checkbox" id="RequestIsAccepted" name="RequestIsAccepted" class="form-control" asp-for="RequestIsAccepted">
+
+                </div>
+            </div>
+
+            <!-- Add more fields as needed -->
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

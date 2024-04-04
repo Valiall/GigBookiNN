@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title1" style=" margin-top:10px; text-transform:uppercase;">GENRE</title>
+    <!-- Add your CSS links or styles here -->
+    <style>
+        body {
+            background-color: #362b25; /* Adjust background color as needed */
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Choose appropriate font */
+            padding: 20px;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid white;
+        }
+
+        th {
+            background-color: #5d5047; /* Header background color */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #7b6e63; /* Even row background color */
+        }
+
+        tr:hover {
+            background-color: #9f917e; /* Hover row background color */
+        }
+
+        .remove-btn {
+            background-color: #8c4f39; /* Remove button color */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+            .remove-btn:hover {
+                background-color: #7a412f; /* Remove button hover color */
+                color: #362b25;
+            }
+    </style>
+</head>
+<body>
+    <div id="genre" style="margin-top:30px;margin-bottom:-10px;text-transform:uppercase;">
+        <h2>Genre</h2>
+    </div>
+
+    <br>
+
+    <table class="table-hover" style="margin-bottom:20px;">
+        <thead>
+            <tr>
+               
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                   
+                    <td>@genre.Name</td>
+                    <td>@genre.Description</td>
+                    <td>
+                        <a asp-controller="Genre" asp-action="Remove" asp-route-id="@genre.Id" class="remove-btn">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

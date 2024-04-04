@@ -1,0 +1,4 @@
+﻿.navbar-nav {
+    position: relative;
+    z-index: 1000; /* Ensure the navbar links stay above other elements */
+}

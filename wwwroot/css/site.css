@@ -1,0 +1,50 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Verdana,Verdana, Geneva, Tahoma, sans-serif;
+outline:none;
+border:none;
+
+transition:.2s linear;
+}
+
+html {
+  font-size: 14px;
+  scroll-behavior:smooth;
+  scroll-padding-top:6rem;
+  overflow-x:hidden;
+
+}
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+    text-transform: capitalize;
+}
+
+
+@keyframes backcolor {
+    100% {
+        background-position: 0 0;
+        background-size: cover;
+    }
+}
+
