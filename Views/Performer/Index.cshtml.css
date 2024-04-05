@@ -7,21 +7,7 @@
     padding: 20px;
 }
 
-.performer-card-container {
-    display: flex;
-    width:23%;
-    background-image: url('../media/lightsea.png');
-    border: 3px solid #4D372F;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 15px;
-    padding: 10px;
-    margin-left: 25px;
-}
-
+.
 .performer-card .card-title {
     font-size: 25px;
     color: #A27868;

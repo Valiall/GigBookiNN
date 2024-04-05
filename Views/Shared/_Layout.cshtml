@@ -11,10 +11,11 @@
 </head>
 
 <body>
+
     @if (User?.Identity?.IsAuthenticated ?? false)
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Performer" asp-action="Add">Add to Performers Collesction</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Performer" asp-action="Add">Add to Performers Collection</a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Performer" asp-action="HiredPerformer">Hired Performers</a>
@@ -34,40 +35,40 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a style="color:white; -webkit-text-stroke: #18130D; text-stroke: #18130D;" class="nav-link" asp-area="" asp-controller="Home"
+                        <li class="nav-item" style="">
+                            <a style="color:white; font-family: Montserrat; -webkit-text-stroke: #18130D; text-stroke: #18130D;" class="nav-link" asp-area="" asp-controller="Home"
                                asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Performer"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Performer"
                                asp-action="Index">Performers</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Home"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Home"
                                asp-action="About">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Home"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Home"
                                asp-action="Contact">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Genre"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Genre"
                                asp-action="Index">Genres</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Genre"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Genre"
                                asp-action="Add">Add Genre</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Event"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Event"
                                asp-action="Index">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Event"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Event"
                                asp-action="Add">Add Event</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color:white" class="nav-link" asp-area="" asp-controller="Home"
+                            <a style="color:white; font-family: Montserrat;" class="nav-link" asp-area="" asp-controller="Home"
                                asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -167,8 +168,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <i src="~/media/logo.png" alt logo></i>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
