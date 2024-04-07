@@ -1,23 +1,49 @@
-﻿.profile-card {
+﻿body {
+            background-color: #362b25;
+        }
+.profile-card {
     display: flex;
     align-items: center;
 }
-
 .profile-image {
-    width: 400px; /* Adjust the width of the image */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Adjust as needed */
+    max-width: 100%;
+    height: auto;
 }
 
 .profile-info {
     flex: 1; /* Fill remaining space */
 }
 .card-body {
-    width: 90%; /* Adjust the width as needed */
-    max-width: 800px; /* Add a maximum width to prevent it from becoming too wide */
+    width: 80%; /* Adjust the width as needed */
+    max-width: 1000px; /* Add a maximum width to prevent it from becoming too wide */
+    height: 60%; /* Adjust the height as needed */
+    max-height: 800px; /* Add a maximum height to prevent it from becoming too tall */
     padding: 20px; /* Add padding to the content area */
     background-color: #f9f9f9; /* Set background color */
     border-radius: 8px; /* Add rounded corners */
     margin: 0 auto; /* Center the card-body horizontally */
     background-size: cover;
+}
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-image {
+    flex: 1;
+    padding: 20px;
+    border-radius: 70px;
+}
+
+.card-info {
+    flex: 2;
+    padding: 20px;
+}
+
+.card-image img {
+    border-radius: 10px;
+}
+
+.profile-info p {
+    margin-bottom: 0; /* Remove default margin */
 }

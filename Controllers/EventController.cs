@@ -1,6 +1,7 @@
 ﻿using GigBookin.Data;
 using GigBookin.Models;
 using GigBookin.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,7 @@ namespace GigBookin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles=("EventOrganiser"))]
         public IActionResult Add()
         {
             return View();

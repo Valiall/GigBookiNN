@@ -138,7 +138,7 @@ namespace GigBookin.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Add()
         {

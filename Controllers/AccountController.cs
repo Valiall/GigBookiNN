@@ -12,13 +12,16 @@ namespace GigBookin.Controllers
         private readonly UserManager<EventOrganiser> userManager;
 
         private readonly SignInManager<EventOrganiser> signInManager;
+        private readonly RoleManager<IdentityRole<Guid>> roleManager;
 
         public AccountController(
             UserManager<EventOrganiser> _userManager,
-            SignInManager<EventOrganiser> _signInManager)
+            SignInManager<EventOrganiser> _signInManager,
+            RoleManager<IdentityRole<Guid>> _roleManager)
         {
             userManager = _userManager;
             signInManager = _signInManager;
+            roleManager = _roleManager;
         }
 
         [HttpGet]
@@ -110,6 +113,33 @@ namespace GigBookin.Controllers
         {
             await signInManager.SignOutAsync();
 
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> CreateRoles()
+        {
+            await roleManager.CreateAsync(new IdentityRole<Guid>("Admin"));
+            await roleManager.CreateAsync(new IdentityRole<Guid>("EventOrganiser"));
+            return RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> AddUsersToRoles()
+        {
+            string email1 = "demirebva.valentina@gmail.com";
+            string email2 = "emiliastancheva@gmail.com";
+
+            var user= await userManager.FindByEmailAsync(email1);
+            var user2 = await userManager.FindByEmailAsync(email2);
+
+
+            if (user != null)
+            {
+                await userManager.AddToRoleAsync(user, "Admin");
+            }
+
+            if (user2 != null)
+            {
+                await userManager.AddToRoleAsync(user2, "EventOrganiser");
+            }
             return RedirectToAction("Index", "Home");
         }
 
