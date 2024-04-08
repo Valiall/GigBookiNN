@@ -140,9 +140,10 @@ namespace GigBookin.Controllers
         [HttpGet]
         [Authorize(Roles = "Admin")]
 
+        [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.GenreId = new SelectList(context.Genres, "Id", "Name");
+            ViewBag.Genres = context.Genres.ToList(); // Retrieve all genres from the database
             return View();
         }
 
@@ -174,7 +175,9 @@ namespace GigBookin.Controllers
         [HttpGet]
         public async Task<IActionResult> ShowMoreInfo(Guid id)
         {
-            var performer = await context.Performers.FirstOrDefaultAsync(x => x.Id == id);
+            var performer = await context.Performers
+                                           .Include(p => p.Genre) // Include Genre information
+                                           .FirstOrDefaultAsync(x => x.Id == id);
 
             if (performer != null)
             {
@@ -183,6 +186,7 @@ namespace GigBookin.Controllers
                     Id = performer.Id,
                     Name = performer.Name,
                     GenreId = performer.GenreId,
+                    Genre = performer.Genre, // Assign Genre object to the ViewModel
                     ImageUrl = performer.ImageUrl,
                     Description = performer.Description,
                     Email = performer.Email,
@@ -193,6 +197,9 @@ namespace GigBookin.Controllers
                     Price = performer.Price
                 };
 
+                // Populate ViewBag.Genres
+                ViewBag.Genres = await context.Genres.ToListAsync();
+
                 return View(viewModel);
             }
             else
@@ -200,6 +207,7 @@ namespace GigBookin.Controllers
                 return NotFound();
             }
         }
+
 
         [HttpGet]
        // [Authorize(Roles = "Administrator")]

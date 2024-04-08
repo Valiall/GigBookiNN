@@ -10,17 +10,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Performer</title>
-
+   
     <style>
         body {
-            background-color: #222;
+            background-color: #222; 
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; 
             padding: 20px;
         }
 
         .form-container {
-            max-width: 600px;
+            max-width: 600px; 
             margin: 0 auto;
         }
 
@@ -36,16 +36,16 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
+            background-color: #007bff; 
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
         }
 
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
+        .btn-primary:hover {
+            background-color: #0056b3; 
+        }
     </style>
 </head>
 <body>
@@ -58,12 +58,14 @@
                 <input type="text" id="Name" name="Name" class="form-control" asp-for="Name" aria-required="true">
             </div>
             <div class="mb-3">
-                <label for="GenreId" class="form-label">GenreId</label>
-                <input type="text" id="GenreId" name="GenreId" class="form-control" asp-for="GenreId" aria-required="true">
-                <!-- Add a select dropdown for GenreId if applicable -->
-                <!--<select id="GenreId" name="GenreId" class="form-control" asp-for="GenreId" aria-required="true">
-                @* Add options here *@
-                </select>-->
+                <label for="GenreId" class="form-label">Genre</label>
+                <select id="GenreId" name="GenreId" class="form-control" asp-for="GenreId" aria-required="true">
+                    <option value="">Select Genre</option>
+                    @foreach (var genre in ViewBag.Genres)
+                    {
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+                </select>
             </div>
             <div class="mb-3">
                 <label for="Description" class="form-label">Description</label>

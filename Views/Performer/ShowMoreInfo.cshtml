@@ -1,98 +1,146 @@
-﻿@model GigBookin.Models.ShowMoreInfoPerformerViewModel;
-<html>
-<body style="background-color: #362b25;">
-    @{
-        ViewBag.Name = "Performer";
-    }
-    <form method="post" action="ShowMoreInfo" class="mt-5">​
-        
-        <div class="container mt-0 mb-5" style="background-color:#5d5047;">
+﻿@model GigBookin.Models.ShowMoreInfoPerformerViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performer Information</title>
+    <style>
+        body {
+            background-color: #362b25;
+            color: #362b25;
+            font-size: 20px;
+        }
+
+        .container {
+            background-color: #5d5047;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .profile-image {
+            max-width: 100%;
+        }
+
+        .form-label {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .custom-button {
+            background-color: #3a77cf;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 10px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="ShowMoreInfo" class="mt-5">
+        <div class="container mt-0 mb-5">
             <div class="row justify-content-center">
-                
-                    <div class="col-md-12">
-                        <div class="card-horizontal mb-4 mt-4">
-                            <div class="card-image">
-                                <img src="@Model.ImageUrl" alt="Performer Image" class="profile-image img-fluid">
-                            </div>
-                            <div class="card-info">
-                                <div class="card-header">
-                                    <h2 class="text-center">@ViewBag.Name</h2>
-                                </div>
-                                <div class="card-body">
-                                    <div class="profile-info">
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Name:</label>
-                                                @Model.Name
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Genre:</label>
-                                                @Model.Genre
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Description:</label>
-                                                @Model.Description
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Email:</label>
-                                             <span  style="text-transform:lowercase;>   @Model.Email</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label" style="text-transform:capitalize;" >Phone:</label>
-                                                @Model.Phone
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Type:</label>
-                                                @Model.Type
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Rating:</label>
-                                                @Model.Rating
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label">Experience:</label>
-                                                @Model.Experince
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label">Price:</label>
-                                                @Model.Price
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <div class="button-container">
-                                        @if (User.IsInRole("Admin"))
-                                    {
-                                        <span class="button1">
-                                            <a asp-controller="Performer" asp-action="Remove" asp-route-id="@Model.Id" class="btn custom-button">REMOVE</a>
-                                        </span>
-                                        <span class="button2">
-                                            <a asp-controller="Performer" asp-action="Edit" asp-route-id="@Model.Id" class="btn custom-button2" style="margin-right:5px;">EDIT</a>
-                                        </span>
-                                    }
-                                    
-                                        <span class="button3">
-                                            <a asp-controller="Performer" asp-action="Index" asp-route-id="@Model.Id" class="btn custom-button3" style="text-transform:uppercase; background-color:#5d5047;color:#362b25; font-weight:bold;margin-right:5px;">BACK</a>
-                                        </span>
-                                            
-                                    </div>
-                                </div>                   
+                <div class="col-md-12">
+                    <div class="card-horizontal mb-4 mt-4">
+                        <div class="card-image">
+                            <img src="@Model.ImageUrl" alt="Performer Image" class="profile-image img-fluid">
                         </div>
-                    
+                        <div class="card-info">
+                            <div class="card-header" style="color:#faf0e6;">
+                                <h2>@Model.Name</h2>
+                            </div>
+                            <div class="card-body" style="background-color:#faf0e6;">
+                                <div class="profile-info">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Name:</label>
+                                            @Model.Name
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Genre:</label>
+                                            @Model.Genre.Name
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone:</label>
+                                            @Model.Phone
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Type:</label>
+                                            @Model.Type
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email:</label>
+                                            <span style="text-transform:lowercase;font-size:15px;">@Model.Email</span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Rating:</label>
+                                            @Model.Rating
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Experience:</label>
+                                            @Model.Experince
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Price:</label>
+                                            @Model.Price
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Description:</label>
+                                            @Model.Description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-container">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <span class="button1">
+                                        <a asp-controller="Performer" asp-action="Remove" asp-route-id="@Model.Id"
+                                           class="btn custom-button" style="background-color: #faf0e6; color: #362b25;">REMOVE</a>
+                                    </span>
+                                    <span class="button2">
+                                        <a asp-controller="Performer" asp-action="Edit" asp-route-id="@Model.Id"
+                                           class="btn custom-button" style="background-color: #faf0e6; color: #362b25;">EDIT</a>
+                                    </span>
+                                }
+                                <span class="button3">
+                                    <a asp-controller="Performer" asp-action="Index" asp-route-id="@Model.Id"
+                                       class="btn custom-button" style="background-color: #faf0e6; color: #362b25;">BACK</a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-     </div>
-     
-    </form>
+        </div>
 
+        </div>
+    </form>
 </body>
 </html>
