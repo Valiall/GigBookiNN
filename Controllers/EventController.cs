@@ -23,8 +23,7 @@ namespace GigBookin.Controllers
             return View(eventt);
         }
 
-        [HttpGet]
-        [Authorize(Roles=("EventOrganiser"))]
+       
         public IActionResult Add()
         {
             return View();
