@@ -4,18 +4,49 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+<style >
+/* Your existing styles */
+/* Adjustments for smaller cards */
+.performer-card {
+    width: 200px; /* Adjust width as needed */
+    margin-right: 20px; /* Add margin for spacing between cards */
+}
+
+.performer-card .card-body {
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.performer-card .card-title {
+    font-size: 18px; /* Adjust font size as needed */
+    margin-bottom: 5px; /* Adjust margin as needed */
+}
+
+.performer-card p {
+    font-size: 14px; /* Adjust font size as needed */
+    margin-bottom: 3px; /* Adjust margin as needed */
+}
+
+.performer-card img {
+    width: 100%; /* Make image responsive to card width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.button-container {
+    margin-top: 10px; /* Adjust margin as needed */
+}
+
+</style >
 .container,
-.container-fluid,
 .container-xxl,
 .container-xl,
 .container-lg,
 .container-md,
 .container-sm {
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media (min-width: 576px) {

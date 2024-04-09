@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GigBookin.Migrations
 {
-    public partial class SeedMigration : Migration
+    public partial class NewMigr : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -174,32 +174,6 @@ namespace GigBookin.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Events",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkingHours = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EventOrganiserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RequestIsAccepted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Events", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Events_AspNetUsers_EventOrganiserId",
-                        column: x => x.EventOrganiserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Performers",
                 columns: table => new
                 {
@@ -212,7 +186,7 @@ namespace GigBookin.Migrations
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    Experince = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -227,11 +201,42 @@ namespace GigBookin.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkingHours = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PerformerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EventId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Events_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Events_Performers_PerformerId",
+                        column: x => x.PerformerId,
+                        principalTable: "Performers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EventPerformer",
                 columns: table => new
                 {
                     PerformerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EventOrganiserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    EventOrganiserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EventId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -240,14 +245,17 @@ namespace GigBookin.Migrations
                         name: "FK_EventPerformer_AspNetUsers_EventOrganiserId",
                         column: x => x.EventOrganiserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_EventPerformer_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_EventPerformer_Performers_PerformerId",
                         column: x => x.PerformerId,
                         principalTable: "Performers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -290,14 +298,24 @@ namespace GigBookin.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_EventPerformer_EventId",
+                table: "EventPerformer",
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_EventPerformer_EventOrganiserId",
                 table: "EventPerformer",
                 column: "EventOrganiserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Events_EventOrganiserId",
+                name: "IX_Events_EventId",
                 table: "Events",
-                column: "EventOrganiserId");
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Events_PerformerId",
+                table: "Events",
+                column: "PerformerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Performers_GenreId",
@@ -326,16 +344,16 @@ namespace GigBookin.Migrations
                 name: "EventPerformer");
 
             migrationBuilder.DropTable(
-                name: "Events");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Performers");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "Performers");
 
             migrationBuilder.DropTable(
                 name: "Genres");

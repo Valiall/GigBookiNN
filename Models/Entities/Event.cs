@@ -8,7 +8,7 @@ namespace GigBookin.Models.Entities
         public Event()
         {
            Id= Guid.NewGuid();
-           this.RequestIsAccepted = false;
+          
         }
 
         [Key]
@@ -20,8 +20,7 @@ namespace GigBookin.Models.Entities
         [Required]
         public string Location { get; set; }
         
-        [Required]
-        public string ImageUrl { get; set; }
+        
         
         [Required]
         public int WorkingHours { get; set; }
@@ -37,12 +36,14 @@ namespace GigBookin.Models.Entities
         public DateTime Time { get; set; }
 
 
-        [ForeignKey("EventOrganiser")]
-        public Guid EventOrganiserId { get; set; }
-        public EventOrganiser EventOrganiser { get; set; }
+        [ForeignKey("Performer")]
+        public Guid PerformerId { get; set; }
+        public Performer Performer{ get; set; }
+      
+        
+        public ICollection<EventPerformer> EventPerformers { get; set; }
+        public ICollection<Event> Events { get; set; } = new List<Event>();
 
-        [Required]
-        public bool RequestIsAccepted { get; set; }
 
 
     }

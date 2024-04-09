@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Event</title>
+    <title>Add to Event</title>
     <!-- Add your CSS links or styles here -->
     <style>
         body {
@@ -81,10 +81,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group">
-                    <label for="ImageUrl" class="form-label">Image URL</label>
-                    <input type="text" id="ImageUrl" name="ImageUrl" class="form-control" asp-for="ImageUrl">
-                </div>
+            
 
                 <div class="form-group">
                     <label for="WorkingHours" class="form-label">Working Hours</label>
@@ -113,20 +110,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="EventOrganiserId" class="form-label">Event Organiser</label>
-                    <select asp-for="EventOrganiserId" class="form-control" asp-items="ViewBag.EventorganiserId">​</select>
+                    <label for="PerformerId" class="form-label">PerformerId</label>
+                    <input type="text" id="PerformerId" name="PerformerId" class="form-control" value="performerId" readonly>
                 </div>
+
             </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="RequestIsAccepted" class="form-label">Request Is Accepted</label>
-                    <input type="checkbox" id="RequestIsAccepted" name="RequestIsAccepted" class="form-control" asp-for="RequestIsAccepted">
-
-                </div>
-            </div>
-
-            <!-- Add more fields as needed -->
+                   
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -35,12 +35,8 @@ namespace GigBookin.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("EventOrganiserId")
+                    b.Property<Guid?>("EventId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -50,8 +46,8 @@ namespace GigBookin.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("RequestIsAccepted")
-                        .HasColumnType("bit");
+                    b.Property<Guid>("PerformerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -61,7 +57,9 @@ namespace GigBookin.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventOrganiserId");
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("PerformerId");
 
                     b.ToTable("Events");
                 });
@@ -163,7 +161,12 @@ namespace GigBookin.Migrations
                     b.Property<Guid>("EventOrganiserId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("PerformerId", "EventOrganiserId");
+
+                    b.HasIndex("EventId");
 
                     b.HasIndex("EventOrganiserId");
 
@@ -205,7 +208,7 @@ namespace GigBookin.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Experince")
+                    b.Property<string>("Experience")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -378,17 +381,27 @@ namespace GigBookin.Migrations
 
             modelBuilder.Entity("GigBookin.Models.Entities.Event", b =>
                 {
-                    b.HasOne("GigBookin.Models.Entities.EventOrganiser", "EventOrganiser")
+                    b.HasOne("GigBookin.Models.Entities.Event", null)
                         .WithMany("Events")
-                        .HasForeignKey("EventOrganiserId")
+                        .HasForeignKey("EventId");
+
+                    b.HasOne("GigBookin.Models.Entities.Performer", "Performer")
+                        .WithMany()
+                        .HasForeignKey("PerformerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("EventOrganiser");
+                    b.Navigation("Performer");
                 });
 
             modelBuilder.Entity("GigBookin.Models.Entities.EventPerformer", b =>
                 {
+                    b.HasOne("GigBookin.Models.Entities.Event", "Event")
+                        .WithMany("EventPerformers")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GigBookin.Models.Entities.EventOrganiser", "EventOrganiser")
                         .WithMany("EventPerformers")
                         .HasForeignKey("EventOrganiserId")
@@ -400,6 +413,8 @@ namespace GigBookin.Migrations
                         .HasForeignKey("PerformerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Event");
 
                     b.Navigation("EventOrganiser");
 
@@ -468,11 +483,16 @@ namespace GigBookin.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GigBookin.Models.Entities.EventOrganiser", b =>
+            modelBuilder.Entity("GigBookin.Models.Entities.Event", b =>
                 {
                     b.Navigation("EventPerformers");
 
                     b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("GigBookin.Models.Entities.EventOrganiser", b =>
+                {
+                    b.Navigation("EventPerformers");
                 });
 
             modelBuilder.Entity("GigBookin.Models.Entities.Genre", b =>

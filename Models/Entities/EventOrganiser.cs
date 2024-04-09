@@ -43,7 +43,7 @@ namespace GigBookin.Models.Entities
         public decimal Balance { get; set; }
 
         public ICollection<EventPerformer> EventPerformers { get; set; }
-        public ICollection<Event> Events { get; set; }=new List<Event>();
+      
 
     }
 }

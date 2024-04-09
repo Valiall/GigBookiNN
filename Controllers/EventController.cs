@@ -30,26 +30,26 @@ namespace GigBookin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddEventViewModel model)
+        public async Task<IActionResult> Add(AddEventViewModel model, string performerName)
         {
             var eventt = new Event()
             {
                 Id = Guid.NewGuid(),
                 Name = model.Name,
                 Location = model.Location,
-                ImageUrl = model.ImageUrl,
-                WorkingHours=model.WorkingHours,
+                WorkingHours = model.WorkingHours,
                 Description = model.Description,
-                Date=model.Date,
-                Time=model.Time,    
-                EventOrganiserId=model.EventOrganiserId,
-                RequestIsAccepted=model.RequestIsAccepted,
-
+                Date = model.Date,
+                Time = model.Time,
+                PerformerId = model.PerformerId,
+                //PerformerName = performerName // Set the performer's name here
             };
+
             await context.Events.AddAsync(eventt);
             await context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Remove(Guid id)
@@ -62,13 +62,12 @@ namespace GigBookin.Controllers
                     Id = eventt.Id,
                     Name = eventt.Name,
                     Location = eventt.Location,
-                    ImageUrl = eventt.ImageUrl,
                     WorkingHours=eventt.WorkingHours,
                     Description = eventt.Description,
                     Date=eventt.Date,
                     Time =eventt.Time,
-                    EventOrganiserId = eventt.EventOrganiserId,
-                    RequestIsAccepted= eventt.RequestIsAccepted,
+                    PerformerId = eventt.PerformerId,
+                   
                 };
                 return await Task.Run(() => View("Remove", viewModel));
             }

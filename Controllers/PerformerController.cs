@@ -162,9 +162,10 @@ namespace GigBookin.Controllers
                 Phone = model.Phone,
                 Type = model.Type,
                 Rating = model.Rating,
-                Experince = model.Experince,
+                Experience = model.Experience,
                 Price = model.Price
             };
+            ViewBag.Genres = await context.Genres.ToListAsync();
 
             await context.Performers.AddAsync(performer);
             context.SaveChanges();
@@ -193,7 +194,7 @@ namespace GigBookin.Controllers
                     Phone = performer.Phone,
                     Type = performer.Type,
                     Rating = performer.Rating,
-                    Experince = performer.Experince,
+                    Experience = performer.Experience,
                     Price = performer.Price
                 };
 
@@ -210,7 +211,6 @@ namespace GigBookin.Controllers
 
 
         [HttpGet]
-       // [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var performer = await context.Performers.FirstOrDefaultAsync(x => x.Id == id);
@@ -227,14 +227,17 @@ namespace GigBookin.Controllers
                     Phone = performer.Phone,
                     Type = performer.Type,
                     Rating = performer.Rating,
-                    Experince = performer.Experince,
+                    Experience = performer.Experience,
                     Price = performer.Price
                 };
-                return await Task.Run(() => View("Edit", viewModel));
-                return RedirectToAction("Index");
+
+                ViewBag.Genres = await context.Genres.ToListAsync(); // Populate ViewBag.Genres
+
+                return View(viewModel);
             }
             return RedirectToAction("Index");
         }
+
         [HttpPost]
 
         //[Authorize(Roles = "Administrator")]
@@ -253,7 +256,7 @@ namespace GigBookin.Controllers
                     performer.Phone = model.Phone;
                     performer.Type = model.Type;
                     performer.Rating = model.Rating;
-                    performer.Experince = model.Experince;
+                    performer.Experience = model.Experience;
                     performer.Price = model.Price;
 
 
@@ -286,7 +289,7 @@ namespace GigBookin.Controllers
                   Phone = performer.Phone,
                   Type = performer.Type,
                   Rating = performer.Rating,
-                  Experince=performer.Experince,
+                  Experience=performer.Experience,
                   Price = performer.Price
 
                 };
@@ -405,7 +408,7 @@ namespace GigBookin.Controllers
                 Phone = ep.Phone,
                 Type = ep.Type,
                 Rating = ep.Rating,
-                Experince = ep.Experince,
+                Experience = ep.Experience,
                 Price = ep.Price,
            
             });

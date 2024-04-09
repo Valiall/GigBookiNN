@@ -14,5 +14,9 @@ namespace GigBookin.Models.Entities
         [ForeignKey(nameof(EventOrganiser))]
         public Guid EventOrganiserId { get; set; }
         public EventOrganiser EventOrganiser { get; set; } = null!;
+       
+        [ForeignKey(nameof(Event))]
+        public Guid EventId { get; set; }
+        public Event Event { get; set; } = null!;
     }
 }

@@ -12,10 +12,10 @@
     <div class="container mt-4" style="text-transform:uppercase;">
         <div class="card p-5" style="margin-bottom:25px;background-color:#362b25; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 10px; ">
-          
+
             <h1 style="color:white; text-transform:uppercase;margin-bottom:30px;"><b>Remove Genre</b></h1>
 
-            <form method="post" action="Delete" >
+            <form method="post" action="/Genre/Remove">
                 <div class="mb-3" style="margin-bottom:10px;">
                     <label for="name" class="form-label" style="color:white;"><b>Title</b></label>
                     <input type="text" id="name" class="form-control rounded-pill" asp-for="Name">
@@ -27,22 +27,25 @@
                 </div>
 
 
-               
+
                 <div class="button-container" style="margin-top:30px;">
                     <span class="button1" style="margin-bottom:15px;">
                         <button type="submit" class="btn custom-button" style="text-transform:uppercase;background-color:#5d5047; color:#362b25; font-weight:bold;">Back</button>
                     </span>
 
                     <span class="button2" style="margin-right:40px;margin-bottom:15px;">
-                        <form asp-action="Remove" asp-controller="Genre">
-                            <button type="submit" class="btn custom-button2" style="text-transform:uppercase; background-color:#5d5047;color:#362b25; font-weight:bold;">Remove</button>
-                        </form>
+                        <button type"submit" class="btn custom-button" style="text-transform:uppercase;background-color:#5d5047; color:#362b25; font-weight:bold;"
+                                asp-action="Remove"
+                                asp-controller="Genre">
+                            Remove
+                        </button>
                     </span>
                 </div>
 
             </form>
         </div>
     </div>
+
 
 </body>
 </html>

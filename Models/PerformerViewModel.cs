@@ -34,7 +34,7 @@ namespace GigBookin.Models
         public int Rating { get; set; }
 
         [Required]
-        public string Experince { get; set; }
+        public string Experience { get; set; }
 
         [Required]
         public decimal Price { get; set; }

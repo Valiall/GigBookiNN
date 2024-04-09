@@ -16,9 +16,6 @@ namespace GigBookin.Models
         public string Location { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
-
-        [Required]
         public int WorkingHours { get; set; }
 
 
@@ -32,12 +29,9 @@ namespace GigBookin.Models
         public DateTime Time { get; set; }
 
 
-        [ForeignKey("EventOrganiser")]
-        public Guid EventOrganiserId { get; set; }
-        public EventOrganiser EventOrganiser { get; set; }
+        public Guid PerformerId { get; set; }
+        public Performer Performer { get; set; }
 
-        [Required]
-        public bool RequestIsAccepted { get; set; }
 
     }
 }

@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="profile-card">
-                                <img src="@Model.ImageUrl" alt="Event Image" class="profile-image img-fluid">
+                              
                                 <div class="profile-info">
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
@@ -41,14 +41,11 @@
                                         <p>@Model.Description</p>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Event Organizer</label>
-                                        <p>@Model.EventOrganiserId</p>
+                                        <label class="form-label">Performer</label>
+                                        <p>@Model.PerformerId</p>
                                     </div>
                                     
-                                    <div class="mb-3">
-                                        <label class="form-label">RequestIsAccepted</label>
-                                        <p>@Model.RequestIsAccepted</p>
-                                    </div>
+                                   
                                  
                                 </div>
                             </div>
@@ -66,6 +63,7 @@
                 </div>
             
         </div>
+ </div>
  </div>
  
 </form>

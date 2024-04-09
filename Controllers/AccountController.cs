@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using GigBookin.Models;
 using GigBookin.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
+using GigBookin.Data;
 
 namespace GigBookin.Controllers
 {
@@ -13,15 +14,18 @@ namespace GigBookin.Controllers
 
         private readonly SignInManager<EventOrganiser> signInManager;
         private readonly RoleManager<IdentityRole<Guid>> roleManager;
+        private readonly ApplicationDbContext _context;
 
         public AccountController(
             UserManager<EventOrganiser> _userManager,
             SignInManager<EventOrganiser> _signInManager,
-            RoleManager<IdentityRole<Guid>> _roleManager)
+            RoleManager<IdentityRole<Guid>> _roleManager,
+            ApplicationDbContext context)
         {
             userManager = _userManager;
             signInManager = _signInManager;
             roleManager = _roleManager;
+            _context = context;
         }
 
         [HttpGet]
@@ -57,6 +61,8 @@ namespace GigBookin.Controllers
 
             if (result.Succeeded)
             {
+                // Assign the "EventOrganiser" role to the newly registered user
+                await userManager.AddToRoleAsync(user, "EventOrganiser");
 
                 return RedirectToAction("Index", "Home");
             }
@@ -68,6 +74,7 @@ namespace GigBookin.Controllers
 
             return View(model);
         }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -142,6 +149,65 @@ namespace GigBookin.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        //[HttpPost]
+        //[Authorize(Roles = "EventOrganiser")]
+        //public async Task<IActionResult> HirePerformer(Guid eventId, Guid performerId)
+        //{
+        //    var eventOrganiser = await userManager.GetUserAsync(User);
+        //    if (eventOrganiser == null)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    }
+
+        //    var @event = await _context.Events.FindAsync(eventId);
+        //    if (@event == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var performer = await _context.Performers.FindAsync(performerId);
+        //    if (performer == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+            
+        //    if (eventOrganiser.Balance < performer.Price)
+        //    {
+        //        ModelState.AddModelError("", "Insufficient balance to hire this performer.");
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+          
+        //    if (performer.Availability == false)
+        //    {
+        //        ModelState.AddModelError("", "This performer is not available for the specified event time.");
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+           
+        //    eventOrganiser.Balance -= performer.Price;
+        //    _context.Update(eventOrganiser);
+        //    await _context.SaveChangesAsync();
+
+            
+        //    @event.EventPerformers.Add(new EventPerformer { PerformerId = performer.Id });
+        //    _context.Update(@event);
+        //    await _context.SaveChangesAsync();
+
+           
+        //    var notification = new Notification
+        //    {
+        //        Message = $"You have been hired for the event '{@event.Name}'."
+        //    };
+        //    _context.Add(notification);
+        //    await _context.SaveChangesAsync();
+
+        //    // Redirect the user to the home page after the hiring process is completed
+        //    return RedirectToAction("Index", "Home");
+        //}
+
 
     }
 }
