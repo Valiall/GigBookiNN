@@ -6,7 +6,6 @@ namespace GigBookin.Models.Entities
     public class EventPerformer
     {
        
-
         [ForeignKey(nameof(Performer))]
         public Guid PerformerId { get; set; }
         public Performer Performer { get; set; } = null!;

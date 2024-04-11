@@ -28,6 +28,7 @@ namespace GigBookin.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string singername)
         {
+
             try
             {
                 if (string.IsNullOrEmpty(singername))

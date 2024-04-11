@@ -11,11 +11,13 @@ namespace GigBookin.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext context;
+      
         public EventController(ApplicationDbContext context)
         {
             this.context = context;
         }
 
+       
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,9 +31,11 @@ namespace GigBookin.Controllers
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Add(AddEventViewModel model, string performerName)
         {
+           
             var eventt = new Event()
             {
                 Id = Guid.NewGuid(),
@@ -42,7 +46,7 @@ namespace GigBookin.Controllers
                 Date = model.Date,
                 Time = model.Time,
                 PerformerId = model.PerformerId,
-                //PerformerName = performerName // Set the performer's name here
+              
             };
 
             await context.Events.AddAsync(eventt);

@@ -40,3 +40,61 @@
         background-position: -750px 0;
         animation: backcolor 5s linear infinite;
     }
+
+.hire {
+    position: relative;
+    background-color: #362b25;
+    padding: 20px;
+    height: 65vh;
+}
+
+
+.container {
+    max-width: 1000px; /* Adjusted max-width */
+    margin: 0 auto;
+    display: flex;
+}
+
+
+
+.left-section, .right-section {
+    width: 50%;
+}
+
+.email {
+    text-transform: lowercase;
+}
+
+h2 {
+    color: #362b25;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    text-shadow: 0 0 5px #E1C591;
+    font-family:Cormorant;
+}
+
+p {
+    -webkit-text-fill-color: #362b25;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-text-stroke: #E1C591;
+}
+
+
+iframe {
+    width: 100%; /* Adjusted width */
+    height: 300px; /* Adjusted height */
+}
+
+.left-section {
+   
+    padding: 20px;
+    border-radius: 10px;
+   
+    margin-right: 10px;
+}
+
+.container > .right-section {
+    margin-left: 20px;
+}
