@@ -42,6 +42,9 @@
     }
 
 .hire {
+    display: flex; /* Add flex display */
+    justify-content: space-between; /* Distribute space between the sections */
+    align-items: center; /* Align items vertically */
     position: relative;
     background-color: #362b25;
     padding: 20px;
@@ -49,16 +52,8 @@
 }
 
 
-.container {
-    max-width: 1000px; /* Adjusted max-width */
-    margin: 0 auto;
-    display: flex;
-}
-
-
-
 .left-section, .right-section {
-    width: 50%;
+    width: calc(50% - 10px); /* Adjust width to accommodate space between */
 }
 
 .email {
@@ -66,35 +61,93 @@
 }
 
 h2 {
-    color: #362b25;
-    font-weight: bold;
+    color: #EAE0CC;
+    font-weight: normal;
     text-transform: uppercase;
     text-align: left;
     text-shadow: 0 0 5px #E1C591;
-    font-family:Cormorant;
+    font-family: Cormorant;
+
+    margin-bottom:30px;
 }
 
 p {
-    -webkit-text-fill-color: #362b25;
+    -webkit-text-fill-color: #EAE0CC;
     font-size: 18px;
     line-height: 1.6;
-    -webkit-text-stroke: #E1C591;
+    font-weight: normal;
+    font-family: Cormorant;
 }
 
-
 iframe {
-    width: 100%; /* Adjusted width */
-    height: 300px; /* Adjusted height */
+    width: 100%;
+    height: 300px;
 }
 
 .left-section {
-   
+    width: 50%;
     padding: 20px;
     border-radius: 10px;
-   
-    margin-right: 10px;
+    font-family: Cormorant;
+    margin-right: 30px; /* Increase the margin between left and right sections */
 }
 
-.container > .right-section {
-    margin-left: 20px;
+.right-section {
+    width: 50%;
+    margin-left: 10px;
+    padding: 40px;
+    margin-bottom: 10px; /* Add margin to create space between left and right sections */
+}
+.choco {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/choco.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Additional styles for the background section */
+}
+.background-sectio {
+    width: 100%;
+    min-height: 75vh;
+    background-image: url('../media/team.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Additional styles for the background section */
+}
+.background-section {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/aestheticpic.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Additional styles for the background section */
+}
+.background-sectionn {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/aestheticpic20.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Additional styles for the background section */
+}
+.hire{
+    font-size: 24px;
+     //
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        color: #ffca28; /* Start color */
+        text-shadow: 0 0 10px #ffca28, 0 0 20px #ffca28, 0 0 30px #ffca28; /* Initial shadow */
+    }
+
+    100% {
+        color: #ffc107; /* End color */
+        text-shadow: 0 0 20px #ffc107, 0 0 30px #ffc107, 0 0 40px #ffc107; /* Final shadow */
+    }
 }

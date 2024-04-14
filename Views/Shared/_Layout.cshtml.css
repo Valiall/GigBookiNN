@@ -173,4 +173,11 @@ button.accept-policy {
     text-transform: uppercase;
 }
 
-/* New rule to make #611811 text bold and capitalized */
+.custom-background {
+    background-image: url('~/wwwroot/media/industrial.png');
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    min-height: 100vh;
+
+}
