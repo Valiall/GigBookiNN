@@ -20,19 +20,16 @@
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="input-box">
+             <div class="input-box">
                 <label asp-for="@Model.UserName" class="form-label"></label>
                 <input asp-for="@Model.UserName" class="form-control" autocomplete="username" aria-required="true" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
-                <i class='bx bxs-user'></i>
-            </div>
+             </div>
 
             <div class="input-box">
                 <label asp-for="@Model.Password" class="form-label"></label>
                 <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-                <i class='bx bxs-lock-alt'></i>
-
+                <span asp-validation-for="Password" class="text-danger"></span>             
             </div>
             <div class="button-borders">
                 <button class="primary-button">

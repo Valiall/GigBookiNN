@@ -56,6 +56,13 @@
                 background-color: #7a412f; /* Remove button hover color */
                 color: #362b25;
             }
+
+        footer {
+            margin-top: auto; /* Push the footer to the bottom */
+            text-align: center;
+            padding: 10px 0;
+            background-color: #5d5047; /* Footer background color */
+        }
     </style>
 </head>
 <body>
@@ -71,7 +78,10 @@
                
                 <th>Name</th>
                 <th>Description</th>
+                 @if (User.IsInRole("Admin"))
+                    {
                 <th>Action</th>
+                    }
             </tr>
         </thead>
         <tbody>
@@ -81,9 +91,14 @@
                    
                     <td>@genre.Name</td>
                     <td>@genre.Description</td>
-                    <td>
-                        <a asp-controller="Genre" asp-action="Remove" asp-route-id="@genre.Id" class="remove-btn">Remove</a>
-                    </td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        <td>
+                            <a asp-controller="Genre" asp-action="Remove" asp-route-id="@genre.Id" class="remove-btn">Remove</a>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

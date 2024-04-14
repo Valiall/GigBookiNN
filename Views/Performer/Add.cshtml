@@ -10,17 +10,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Performer</title>
-   
+
     <style>
         body {
-            background-color: #222; 
+            background-color: #222;
             color: white;
-            font-family: Arial, sans-serif; 
+            font-family: Arial, sans-serif;
             padding: 20px;
         }
 
         .form-container {
-            max-width: 600px; 
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -36,16 +36,16 @@
         }
 
         .btn-primary {
-            background-color: #007bff; 
+            background-color: #007bff;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
         }
 
-        .btn-primary:hover {
-            background-color: #0056b3; 
-        }
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 <body>
@@ -66,6 +66,20 @@
                         <option value="@genre.Id">@genre.Name</option>
                     }
                 </select>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="Rating" class="form-label">Rating</label>
+                        <input type="text" id="Rating" name="Rating" class="form-control" asp-for="Rating" aria-required="true">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="Experience" class="form-label">Experience</label>
+                        <input type="text" id="Experience" name="Experience" class="form-control" asp-for="Experience" aria-required="true">
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="Description" class="form-label">Description</label>
@@ -88,15 +102,6 @@
                 <input type="text" id="Type" name="Type" class="form-control" asp-for="Type" aria-required="true">
             </div>
             <div class="mb-3">
-                <label for="Rating" class="form-label">Rating</label>
-                <input type="text" id="Rating" name="Rating" class="form-control" asp-for="Rating" aria-required="true">
-            </div>
-            <div class="mb-3">
-                <label for="Experience" class="form-label">Experience</label>
-                <input type="text" id="Experience" name="Experience" class="form-control" asp-for="Experience" aria-required="true">
-            </div>
-
-            <div class="mb-3">
                 <label for="Price" class="form-label">Price</label>
                 <input type="text" id="Price" name="Price" class="form-control" asp-for="Price" aria-required="true">
             </div>
@@ -107,3 +112,4 @@
     </div>
 </body>
 </html>
+
