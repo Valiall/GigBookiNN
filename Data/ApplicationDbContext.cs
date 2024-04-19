@@ -50,7 +50,7 @@ namespace GigBookin.Data
 
       builder.Entity<EventOrganiser>()
         .Property(eo => eo.Balance)
-        .HasColumnType("decimal(18, 2)"); // Adjust precision and scale as needed
+        .HasColumnType("decimal(18, 2)"); 
 
       builder.Entity<Performer>()
         .Property(p => p.Price)
