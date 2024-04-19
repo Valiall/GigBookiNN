@@ -11,17 +11,17 @@
 }
 
 .profile-info {
-    flex: 1; /* Fill remaining space */
+    flex: 1; 
 }
 .card-body {
-    width: 80%; /* Adjust the width as needed */
-    max-width: 1000px; /* Add a maximum width to prevent it from becoming too wide */
-    height: 60%; /* Adjust the height as needed */
-    max-height: 800px; /* Add a maximum height to prevent it from becoming too tall */
-    padding: 20px; /* Add padding to the content area */
-    background-color: #f9f9f9; /* Set background color */
-    border-radius: 8px; /* Add rounded corners */
-    margin: 0 auto; /* Center the card-body horizontally */
+    width: 80%; 
+    max-width: 1000px; 
+    height: 60%; 
+    max-height: 800px; 
+    padding: 20px; 
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    margin: 0 auto;
     background-size: cover;
 }
 .card-horizontal {
@@ -45,5 +45,5 @@
 }
 
 .profile-info p {
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0; 
 }
