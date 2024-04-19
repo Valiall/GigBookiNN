@@ -2,10 +2,10 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
- 
     text-align: center;
     word-break: break-all;
 }
+
 .navbar-nav {
     position: relative;
     z-index: 1000; /* Ensure the navbar links stay above other elements */
@@ -54,7 +54,6 @@ button.accept-policy {
     padding: 30px 30px 20px 30px;
     color: #611811;
     background-color: white;
-    
     border-top: 7px solid #362b25;
 }
 
@@ -177,7 +176,6 @@ button.accept-policy {
     background-image: url('~/wwwroot/media/industrial.png');
     background-size: cover;
     background-position: center;
-    width:100%;
+    width: 100%;
     min-height: 100vh;
-
 }
