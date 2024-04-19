@@ -26,11 +26,13 @@ namespace GigBookin.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(13,MinimumLength=10)]
         public string Phone { get; set; }
         [Required]
         public string Type { get; set; }
 
         [Required]
+        [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
         public int Rating { get; set; }
 
         [Required]

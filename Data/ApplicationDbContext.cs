@@ -54,7 +54,7 @@ namespace GigBookin.Data
 
       builder.Entity<Performer>()
         .Property(p => p.Price)
-        .HasColumnType("decimal(18, 2)"); // Adjust precision and scale as needed
+        .HasColumnType("decimal(18, 2)"); 
     }
   }
 }

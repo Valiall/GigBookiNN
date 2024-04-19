@@ -29,8 +29,6 @@ namespace GigBookin.Models
         [Required]
         public DateTime Time { get; set; }
 
-
-
         public Guid PerformerId { get; set; }
         public Performer Performer { get; set; }
 
