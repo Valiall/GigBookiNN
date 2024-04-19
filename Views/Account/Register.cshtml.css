@@ -17,7 +17,7 @@ section {
 
 .wrapper {
     width: 420px;
-    background: rgba(0, 0, 0, 0.1); /* Adjust background opacity */
+    background: rgba(0, 0, 0, 0.1); 
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
@@ -28,8 +28,8 @@ section {
     z-index: 1;
 }
 .input-box {
-    position: relative; /* Ensure proper z-index stacking */
-    z-index: 2; /* Set a higher z-index */
+    position: relative; 
+    z-index: 2; 
 }
     .wrapper h1 {
         font-size: 36px;
@@ -73,7 +73,6 @@ section {
 
 .wrapper .primary-button {
     font-family: 'Ropa Sans', sans-serif;
-    /* font-family: 'Valorant', sans-serif; */
     color: white;
     cursor: pointer;
     font-size: 13px;
