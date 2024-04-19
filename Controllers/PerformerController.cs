@@ -144,7 +144,7 @@ namespace GigBookin.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.Genres = context.Genres.ToList(); // Retrieve all genres from the database
+            ViewBag.Genres = context.Genres.ToList(); 
             return View();
         }
 
@@ -178,7 +178,7 @@ namespace GigBookin.Controllers
         public async Task<IActionResult> ShowMoreInfo(Guid id)
         {
             var performer = await context.Performers
-                                           .Include(p => p.Genre) // Include Genre information
+                                           .Include(p => p.Genre) 
                                            .FirstOrDefaultAsync(x => x.Id == id);
 
             if (performer != null)
@@ -188,7 +188,7 @@ namespace GigBookin.Controllers
                     Id = performer.Id,
                     Name = performer.Name,
                     GenreId = performer.GenreId,
-                    Genre = performer.Genre, // Assign Genre object to the ViewModel
+                    Genre = performer.Genre, 
                     ImageUrl = performer.ImageUrl,
                     Description = performer.Description,
                     Email = performer.Email,
@@ -199,7 +199,7 @@ namespace GigBookin.Controllers
                     Price = performer.Price
                 };
 
-                // Populate ViewBag.Genres
+               
                 ViewBag.Genres = await context.Genres.ToListAsync();
 
                 return View(viewModel);
@@ -232,7 +232,7 @@ namespace GigBookin.Controllers
                     Price = performer.Price
                 };
 
-                ViewBag.Genres = await context.Genres.ToListAsync(); // Populate ViewBag.Genres
+                ViewBag.Genres = await context.Genres.ToListAsync(); 
 
                 return View(viewModel);
             }
@@ -240,7 +240,6 @@ namespace GigBookin.Controllers
         }
 
         [HttpPost]
-
         //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(EditPerformerViewModel model)
         {
@@ -318,6 +317,10 @@ namespace GigBookin.Controllers
             return RedirectToAction("Index");
 
         }
+
+
+
+
         [HttpPost]
        //[Authorize(Roles = "EventOrganiser")]
         
@@ -373,6 +376,13 @@ namespace GigBookin.Controllers
                 return StatusCode(500, "An error occurred while adding performer to collection.");
             }
         }
+        
+      
+        
+        
+        
+        
+        
         
         [HttpGet]
       //  [Authorize(Roles = "Administrator")]
