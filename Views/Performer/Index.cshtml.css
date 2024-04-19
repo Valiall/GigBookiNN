@@ -12,22 +12,21 @@
   width:100%;
     height: 100%;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-wrap: wrap; 
     justify-content: flex-start;
     padding: 20px;
-    overflow-x: auto; /* Enable horizontal scrolling if necessary */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
+    overflow-x: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 
     .performers-container::-webkit-scrollbar {
-        display: none; /* Hide the scrollbar */
+        display: none;
     }
 
 .performer-card {
-    width: calc(20% - 20px); /* 20% width with margin included */
-    min-width: 280px; /* Minimum width for the card */
-    margin: 10px 44px; /* Adjusted margin */
+    width: calc(20% - 20px); 
+    min-width: 280px;
+    margin: 10px 44px; 
     background-color: #4d372f;
     display: flex;
     flex-direction: column;
