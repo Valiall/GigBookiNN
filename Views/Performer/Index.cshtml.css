@@ -38,7 +38,7 @@
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0; /* Prevent cards from shrinking to fit */
+    flex-shrink: 0; 
 }
 
 .img-container {
