@@ -1,11 +1,17 @@
-﻿.container {
+﻿body {
+    background-color:#5d5047;
+}
+.container {
+    background-color: #5d5047;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+
 }
 
 h1 {
-
+    margin-top:30px;
+    color:white;
+    font-family:Montserrat;
 padding-bottom:20px;
 text-align:center;
 }
@@ -24,6 +30,7 @@ text-align:center;
 
 .text {
     padding-right: 20px;
+    color:white;
 }
 
 @media (max-width: 768px) {
